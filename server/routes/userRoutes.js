@@ -1,9 +1,11 @@
 const express =require("express")
-const router=require("Router")
-const{usersignup}=require("../controllers/userController")
+const router=express.Router();
+const{signup,login}=require("../controllers/userController")
 
-router.post("/signup",usersignup);
+router.post("/user/signup",signup);
 
+
+router.post("/user/login",login);
 
 
 
