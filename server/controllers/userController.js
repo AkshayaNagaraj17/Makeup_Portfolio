@@ -56,4 +56,56 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { signup, login };
+const profile=async(req,res)=>
+{
+    try{
+        const user=await User.findById(req.user)
+        if(!user)
+        {
+            return res.status(401).json(
+                {
+                    message:"user not found"
+                }
+            )
+        }
+        res.status(201).json(user)
+    }
+    catch(error)
+    {
+        res.status(500).json(
+            {
+                message:"error in fetching",
+                error:error.message
+            }
+        )
+    }
+}
+
+const updateProfile= async(req,res)=>
+{
+    const {name,email}=req.body;
+    try{
+        const user=await User.findByIdAndUpdate(req.user,{name,email},{new:true});
+    if(!user)
+    {
+        res.status(401).json(
+            {
+                message:"User not found"
+            }
+        )
+    }
+
+    res.status(201).json(user)
+    }
+    catch(error)
+    {
+        res.status(500).json(
+            {
+                mssage:"Updation failed",
+                error:error.message
+            }
+        )
+    }
+}
+
+module.exports = { signup, login ,profile,updateProfile};
