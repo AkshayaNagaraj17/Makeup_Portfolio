@@ -14,7 +14,7 @@ const signup = async (req, res) => {
     //hashing the pword
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-
+    //pushing users in db
     await User.create({
       name: name,
       email: email,
@@ -107,5 +107,8 @@ const updateProfile= async(req,res)=>
         )
     }
 }
+
+
+
 
 module.exports = { signup, login ,profile,updateProfile};
