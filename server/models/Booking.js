@@ -20,4 +20,4 @@ const BookingSchema=new Schema({
 
 })
 
-module.exports=mongoose.model("Bokkings",BookingSchema)
+module.exports=mongoose.model("Bookings",BookingSchema)
