@@ -5,7 +5,7 @@ dotenv.config();
 const connectDB=require("./config/db")
 
 
-const adminAuthRoutes = require("./routes/auth/adminAuthRoutes");
+const adminAuthRoutes = require("./routes/auth/adminRoutes");
 const userRoutes = require("./routes/auth/userRoutes"); // For client authentication
 const adminPortfolioRoutes = require("./routes/admin/portfolioRoutes");
 const adminServiceRoutes = require("./routes/admin/serviceRoutes");

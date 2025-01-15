@@ -1,4 +1,4 @@
-const Portfolio = require("../../models/Portfolio");
+const Portfolio = require("../../../models/Portfolio");
 
 // Add a new portfolio item
 const addPortfolioItem = async (req, res) => {

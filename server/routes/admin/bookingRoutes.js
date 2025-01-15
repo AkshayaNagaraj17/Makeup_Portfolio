@@ -1,11 +1,11 @@
 const express=require("express")
 const router=express.Router()
-const {viewBooking,deleteBooking}=require("../../controllers/admin/admin/bookingController")
+const {getBooking}=require("../../controllers/admin/admin/bookingController")
 
 
-router.get("/getbooking",viewBooking);
+// router.get("/",createBooking);
 
-router.delete("/deletebooking",deleteBooking)
+router.delete("/getbooking",getBooking)
 
 
 module.exports=router

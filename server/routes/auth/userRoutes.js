@@ -1,7 +1,7 @@
 const express =require("express")
 const router=express.Router();
 const protect=require("../../middleware/protect")
-const{signup,login,profile,updateProfile}=require("../../controllers/client/authController")
+const{signup,login,profile,updateProfile}=require("../../controllers/client/userController")
 
 router.post("/signup",signup);
 

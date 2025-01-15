@@ -1,4 +1,4 @@
-const User = require("../../models/User"); // Assuming the same User schema for admin
+const User = require("../../../models/User"); // Assuming the same User schema for admin
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
