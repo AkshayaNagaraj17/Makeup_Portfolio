@@ -5,6 +5,6 @@ const { addPortfolioItem ,updatePortfolioItem,deletePortfolioItem} = require("..
 // Admin routes for portfolio management
 router.post("/createpf",addPortfolioItem ); 
 router.put("/updatepf/:id", updatePortfolioItem); 
-router.get("/getpf", deletePortfolioItem); 
+router.get("/deletepf", deletePortfolioItem); 
 
 module.exports = router;

@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 const adminSignup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const adminExists = await User.findOne({ email, isAdmin: true });
+
+    // Check if admin already exists
+    const adminExists = await User.findOne({ email, role: "admin" });
     if (adminExists) {
       return res.status(400).json({ message: "Admin already exists" });
     }
@@ -18,7 +20,7 @@ const adminSignup = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      isAdmin: true, // Flag to differentiate admin users
+      role: "admin", // Use a clear role identifier
     });
 
     res
@@ -36,7 +38,7 @@ const adminLogin = async (req, res) => {
     const { email, password } = req.body;
 
     // Check for admin user
-    const admin = await User.findOne({ email, isAdmin: true });
+    const admin = await User.findOne({ email, role: "admin" });
     if (!admin) {
       return res.status(400).json({ message: "Admin not found" });
     }
@@ -49,7 +51,7 @@ const adminLogin = async (req, res) => {
 
     // Generate JWT
     const token = jwt.sign(
-      { userID: admin._id.toString(), isAdmin: true },
+      { userID: admin._id.toString(), role: "admin" },
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );

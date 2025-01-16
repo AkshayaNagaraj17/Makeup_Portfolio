@@ -4,7 +4,7 @@ dotenv.config();
 
 const connectDB=require("./config/db")
 
-
+const adminuManageRoutes=require("./routes/admin/uManageRoutes")
 const adminAuthRoutes = require("./routes/auth/adminRoutes");
 const userRoutes = require("./routes/auth/userRoutes"); // For client authentication
 const adminPortfolioRoutes = require("./routes/admin/portfolioRoutes");
@@ -24,7 +24,7 @@ app.use("/api/admin/portfolio", adminPortfolioRoutes); // Admin portfolio manage
 app.use("/api/admin/service", adminServiceRoutes); // Admin service management
 app.use("/api/admin/bookings", adminBookingRoutes); // Admin booking management
 app.use("/api/client", clientRoutes); 
-
+app.use("/api/admin/uManage",adminuManageRoutes)
 const PORT=process.env.PORT || 5000;
 app.listen(PORT,
     ()=>console.log(`server is running at${PORT}`)

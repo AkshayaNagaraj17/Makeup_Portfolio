@@ -24,7 +24,7 @@ const Appointment = require("../../../models/Booking");
 
 const getBooking = async (req, res) => {
   try {
-    const bookings = await Appointment.find().populate("service");
+    const bookings = await Appointment.find(); //.populate(service)
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({

@@ -5,7 +5,7 @@ const {getBooking}=require("../../controllers/admin/admin/bookingController")
 
 // router.get("/",createBooking);
 
-router.delete("/getbooking",getBooking)
+router.get("/getbooking",getBooking)
 
 
 module.exports=router

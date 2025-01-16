@@ -7,7 +7,7 @@ const PortfolioSchema=new Schema(
         title:{type:String,
             required:true
         },
-        descricption:{type:String,
+        description:{type:String,
             required:true
         },
         image:{
