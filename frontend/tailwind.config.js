@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // Add all the paths where Tailwind will look for classes
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        customBrown:"#68331D"
+      }
+    },
   },
   plugins: [],
 }
