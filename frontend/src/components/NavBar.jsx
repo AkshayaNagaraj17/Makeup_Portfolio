@@ -39,7 +39,7 @@ function NavBar() {
         <li>About</li>
       </ul>
 
-      <div className="flex gap-4 mt-4 md:mt-0 mr-5">
+      <div className="flex gap-4 mt-4 mr-5">
         <button className="bg-customBrown px-5 py-2 border rounded-2xl text-white hover:bg-opacity-25 hover:font-bold hover:text-customBrown">
           Signup
         </button>
