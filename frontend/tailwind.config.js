@@ -5,6 +5,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        lexend: ['Lexend Giga', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        cursive:['Dancing Script','serif'],
+        welcome:['Architects Daughter','serif'],
+        avr:['Average Sans','serif']
+      },
       colors:{
         customBrown:"#68331D"
       }

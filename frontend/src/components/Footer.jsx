@@ -1,9 +1,10 @@
+import React from "react";
 import { FaInstagram,FaMailBulk,FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="bg-customBrown text-white text-md py-6">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+    <footer className="bg-customBrown text-white text-md py-6 ">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center">
         
         
         <div className="flex flex-col space-y-2 md:space-y-0 md:space-x-6 md:flex-row">

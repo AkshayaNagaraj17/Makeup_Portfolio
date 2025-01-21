@@ -1,11 +1,12 @@
 import { useState } from "react";
+import React from "react";
 import logo from "../assets/shine.png";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="flex flex-col md:flex-row items-center justify-between p-4 bg-white shadow-md">
+    <nav className="flex flex-col items-center md:flex-row items-center justify-between p-4 bg-white shadow-md">
       <img className="w-32 h-auto ml-5" src={logo} alt="logo" />
       <button
         className="md:hidden text-customBrown focus:outline-none"
@@ -39,11 +40,11 @@ function NavBar() {
         <li>About</li>
       </ul>
 
-      <div className="flex gap-4 mt-4 mr-5">
-        <button className="bg-customBrown px-5 py-2 border rounded-2xl text-white hover:bg-opacity-25 hover:font-bold hover:text-customBrown">
+      <div className="flex gap-4 mt-1 mr-5">
+        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
           Signup
         </button>
-        <button className="bg-customBrown px-5 py-2 border rounded-2xl text-white hover:bg-opacity-25 hover:font-bold hover:text-customBrown">
+        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
           Login
         </button>
       </div>
