@@ -13,7 +13,8 @@ module.exports = {
         avr:['Average Sans','serif']
       },
       colors:{
-        customBrown:"#68331D"
+        customBrown:"#68331D",
+        customBeige:"#FEF2EC"
       }
     },
   },
