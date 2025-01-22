@@ -1,5 +1,5 @@
 import React from "react";
-import {motion} from "framer-motion"
+
 function Home() {
   return (
     <div>
@@ -9,7 +9,6 @@ function Home() {
         style={{ backgroundImage: "url('/images/Brush.jpg')" }}
       >
         <div className="absolute inset-0 flex flex-col justify-end items-end p-5 space-y-4">
-          
           <div className="text-white items-end font-bold font-lexend text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-right p-5 mt-20">
             <p>Treat your makeup </p>
             <p className="md:mt-10 ">like jewelry for the</p>
