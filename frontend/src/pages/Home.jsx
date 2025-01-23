@@ -28,7 +28,7 @@ function Home() {
       </div>
       {/* welcome message */}
       <div>
-        <p className="p-6 mt-10 mb-6 ml-32 text-customBrown font-welcome text-xl sm:text-2xl md:text-3xl ml-0 text-left  lg:text-3xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
+        <p className="p-6 mt-10 mb-6 ml-32 text-customBrown font-welcome text-xl sm:text-2xl md:text-3xl  text-left  lg:text-3xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
           Welcome to shine studio ,
         </p>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link  } from "react-router-dom";
 import React from "react";
 import logo from "../assets/shine.png";
 
@@ -32,12 +33,12 @@ function NavBar() {
           menuOpen ? "flex" : "hidden"
         } flex-col md:flex md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-customBrown hover:cursor-pointer mt-4 md:mt-0`}
       >
-        <li>Home</li>
-        <li>Portfolio</li>
-        <li>Services</li>
-        <li>Booking</li>
-        <li>Contact</li>
-        <li>About</li>
+        <Link className="hover:scale-110" to="/home">Home</Link>
+        <Link className="hover:scale-110" to="/portfolio">Portfolio</Link >
+        <Link className="hover:scale-110" to="/service">Services</Link >
+        <Link className="hover:scale-110" to="/booking">Booking</Link >
+        <Link className="hover:scale-110" to="/contact">Contact</Link >
+        <Link className="hover:scale-110" to="/about">About</Link >
       </ul>
 
       <div className="flex gap-4 mt-1 mr-5">

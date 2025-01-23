@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaInstagram,FaMailBulk,FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
@@ -8,28 +9,28 @@ function Footer() {
         
         
         <div className="flex flex-col space-y-2 md:space-y-0 md:space-x-6 md:flex-row">
-          <a href="/About" className="hover:underline">
+          <Link to="/about" className="hover:underline">
             About
-          </a>
-          <a href="/Home" className="hover:underline">
+          </Link>
+          <Link to="/home" className="hover:underline">
             Home
-          </a>
-          <a href="/Booking" className="hover:underline">
+          </Link>
+          <Link to="/booking" className="hover:underline">
             Booking
-          </a>
+          </Link>
         </div>
 
        
         <div className="flex flex-col space-y-2 md:space-y-0 md:space-x-6 md:flex-row mt-4 md:mt-0"> 
-          <a href="/Portfolio" className="hover:underline">
+          <Link to="/portfolio" className="hover:underline">
             Portfolio
-          </a>
-          <a href="/Service" className="hover:underline">
+          </Link>
+          <Link to="/service" className="hover:underline">
             Terms of Service
-          </a>
-          <a href="/Contact" className="hover:underline">
+          </Link>
+          <Link to="/contact" className="hover:underline">
             Contact Us
-          </a>
+          </Link>
         </div>
      
 
