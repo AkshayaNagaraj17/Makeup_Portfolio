@@ -5,7 +5,7 @@ function About() {
     <div>
       <div className="flex flex-col md:flex-col  lg:flex-row ">
         <img
-          className="w-full lg:w-3/4  mt-8 mb-8 mr-10 rounded-md sm:w-full  md:w-full"
+          className="w-full lg:w-3/4  mt-8 mb-8 mr-10 rounded-md sm:w-full  md:w-full transition delay-200 hover:scale-105 hover:brightness-110 "
           src="/images/bridal2.jpg"
           alt="MakeupArtist"
         />
@@ -39,7 +39,7 @@ function About() {
         </div>
         </div>
       </div>
-      <h2 className="text-customBrown mb-10 font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out flex justify-center">
+      <h2 className="text-customBrown mb-10 mt-20 font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out flex justify-center">
         Open to Travel<FaPlane className="flex ml-5"/>
             </h2>
     </div>
