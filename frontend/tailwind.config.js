@@ -10,7 +10,8 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         cursive:['Dancing Script','serif'],
         welcome:['Architects Daughter','serif'],
-        avr:['Average Sans','serif']
+        avr:['Average Sans','serif'],
+        bf:['Bellefair','serif']
       },
       colors:{
         customBrown:"#68331D",

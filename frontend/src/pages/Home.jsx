@@ -28,7 +28,7 @@ function Home() {
       </div>
       {/* welcome message */}
       <div>
-        <p className="p-6 mt-10 mb-6 ml-32 text-customBrown font-welcome text-xl sm:text-2xl md:text-3xl ml-0 text-left  lg:text-3xl ">
+        <p className="p-6 mt-10 mb-6 ml-32 text-customBrown font-welcome text-xl sm:text-2xl md:text-3xl ml-0 text-left  lg:text-3xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
           Welcome to shine studio ,
         </p>
 
@@ -39,7 +39,7 @@ function Home() {
             alt="brush vector"
           />
           <div className="flex flex-col items-center  justify-center p-3 font-avr">
-            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 ">
+            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 hover:underline hover:scale-105 transition duration-300 ease-in-out">
               Explore Our Portfolio
             </h2>
             <div className="text-xl">
@@ -54,7 +54,7 @@ function Home() {
 
         <div className="flex flex-col-reverse md:flex-row md:justify-items-end items-center justify-evenly">
           <div className="flex flex-col items-center  justify-center p-3 font-avr">
-            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 ">
+            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 hover:underline hover:scale-105 transition duration-300 ease-in-out">
               For Every Occasion
             </h2>
             <div className="text-xl">
@@ -78,7 +78,7 @@ function Home() {
             alt="brush vector"
           />
           <div className="flex flex-col items-center  justify-center p-3 font-avr">
-            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 ">
+            <h2 className="text-customBrown text-xl sm:text-xl md:text-2xl lg:text-2xl mb-10 hover:underline hover:scale-105 transition duration-300 ease-in-out">
               Book with Ease
             </h2>
             <div className="text-xl">
@@ -93,7 +93,7 @@ function Home() {
       </div>
 
       <div>
-        <h2 className="text-customBrown tracking-widest text-center text-2xl ">
+        <h2 className="text-customBrown tracking-widest text-center text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
           Client Love !
         </h2>
         <div className="bg-customBeige rounded-xl w-1/2 p-5 mx-auto mb-10 mt-5 items-center text-center hover:shadow-xl shadow-red-200">
