@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import emailjs from "emailjs-com"
 function Booking() {
   const [formData, setForm] = useState({
     name: "",
@@ -9,6 +9,7 @@ function Booking() {
     venue: "",
     service: "",
   });
+
   const services = [
     "Bridal Makeup",
     "Guest Look",
@@ -22,103 +23,136 @@ function Booking() {
     setForm({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); //prevents default submission and reload and handle it by js
-    console.log("Booking details:", formData);
-    alert("Your booking has been submitted");
-    setForm({
-      name: "",
-      email: "",
-      number: "",
-      date: "",
-      venue: "",
-      service: "",
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/client/clientBook/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+        formData),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert("Your booking has been submitted successfully!");
+        const emailParams={
+          client_name: formData.name,
+          client_email: formData.email,
+          client_phone: formData.number,
+          appointment_date: formData.date,
+          service_booked: formData.service,
+          venue: formData.venue,
+        }
+        emailjs.send(
+          "service_b02tsse",
+          "template_ux4cs9b",
+          emailParams,
+          "VEMVEqCGroX1Sfd9U"
+        )
+        .then(
+          (response)=>
+          {
+            console.log("Email sent successfully",response.status,response.text)
+            alert("Booking confirmed email has sent")
+          },
+          (error)=>{
+            console.error("Failoed to send mail",error)
+            alert("Failed to send your booking mail")
+          }
+        )
+        setForm({
+          name: "",
+          email: "",
+          number: "",
+          date: "",
+          venue: "",
+          service: "",
+        });
+      } else {
+        alert(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting booking :", error);
+      alert("Error submitting booking");
+    }
   };
 
   return (
-    <div className="bg-customBeige w-full  md: p-5">
+    <div className="bg-customBeige w-full p-5">
       <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
-        Schedule your Appointments
+        Schedule your Appointment
       </h1>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center  w-full ">
-          <label htmlFor="name" className=" ml-2">
-            Name *{" "}
-          </label>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+        <div className="flex flex-col">
+          <label className="mb-1">Name *</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            id="name"
-            placeholder="Enter your name"
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4  lg:w-1/2  rounded-lg block"
+            className="p-2 border rounded"
           />
-          <label htmlFor="email" className=" ml-2 mt-5">
-            Email *{" "}
-          </label>
+        </div>
+
+        <div className="flex flex-col">
+          <label className=" mb-1">Email *</label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            id="email"
-            placeholder="Enter your email"
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4  lg:w-1/2  rounded-lg block"
+            className="p-2 border rounded"
           />
-          <label htmlFor="number" className=" ml-2 mt-5">
-            Phone *{" "}
-          </label>
+        </div>
+
+        <div className="flex flex-col">
+          <label className=" mb-1">Phone *</label>
           <input
-            type="number"
+            type="tel"
             name="number"
             value={formData.number}
             onChange={handleChange}
-            id="number"
-            placeholder="Ph.no."
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4  lg:w-1/2  rounded-lg block"
+            className="p-2 border rounded"
           />
-          <label htmlFor="date" className="mt-5 ml-2">
-            Event Date *{" "}
-          </label>
+        </div>
+
+        <div className="flex flex-col">
+          <label className=" mb-1">Event Date *</label>
           <input
             type="date"
-            id="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            placeholder="Enter date"
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4  lg:w-1/2  rounded-lg block"
+            className="p-2 border rounded"
           />
-          <label htmlFor="venue" className="mt-5 ml-2">
-            Venue *{" "}
-          </label>
+        </div>
+
+        <div className="flex flex-col">
+          <label className=" mb-1">Venue *</label>
           <input
             type="text"
-            id="venue"
             name="venue"
             value={formData.venue}
             onChange={handleChange}
-            placeholder="venue"
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4  lg:w-1/2  rounded-lg block"
+            className="p-2 border rounded"
           />
-          <label htmlFor="service" className="mt-5 ml-2">
-            What are you looking for? *{" "}
-          </label>
+        </div>
+
+        <div className="flex flex-col">
+          <label className=" mb-1">Service *</label>
           <select
             name="service"
-            id="service"
             value={formData.service}
             onChange={handleChange}
-            placeholder="Select Service"
             required
-            className="p-2 mt-3  w-full sm:w-3/4 md:w-3/4 lg:w-1/2 rounded-lg "
+            className="p-2 border rounded"
           >
             <option value="" disabled>
               Select service
@@ -129,10 +163,13 @@ function Booking() {
               </option>
             ))}
           </select>
-          <button className=" bg-customBrown px-5 py-2  transition duration-300 ease-in-out  mt-10 flex items-center rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
-            BOOK NOW
-          </button>
         </div>
+        <button
+          type="submit"
+          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown"
+        >
+          Book Now
+        </button>
       </form>
     </div>
   );
