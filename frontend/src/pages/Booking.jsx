@@ -25,14 +25,16 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+
     try {
-      const response = await fetch("/api/client/clientBook/create", {
+      const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(
-        formData),
+        ...formData),
       });
       const result = await response.json();
       if (response.ok) {
@@ -124,7 +126,7 @@ function Booking() {
         <div className="flex flex-col">
           <label className=" mb-1">Event Date *</label>
           <input
-            type="date"
+            type=""
             name="date"
             value={formData.date}
             onChange={handleChange}
