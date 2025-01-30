@@ -6,24 +6,39 @@ import Portfolio from "./pages/Portfolio";
 import Service from "./pages/Service";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
-import About from "./pages/About"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation(); // This will work only if App is inside Router
+  
+  const shouldusenavfooter = location.pathname !== "/signup" && location.pathname !== "/login";
+
   return (
-    <Router>
-      <NavBar />
+    <div>
+      {shouldusenavfooter && <NavBar />}  {/* Render NavBar only if condition is true */}
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/service" element={<Service />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element ={<About/>}/>
+        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
-      <Footer />
-    </Router>
+      {shouldusenavfooter && <Footer />}  {/* Render Footer only if condition is true */}
+    </div>
   );
 }
 
-export default App;
+// Wrap the entire application with Router in index.js (or wherever you render App)
+export default function Root() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
