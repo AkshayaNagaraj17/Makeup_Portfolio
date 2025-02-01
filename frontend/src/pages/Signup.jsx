@@ -29,10 +29,11 @@ function Signup() {
   };
 
   return (
-    <div className="bg-customBeige flex flex-col items-left justify-around">
-      <div><form onSubmit={handleSubmit} className="p-5 m-10"> 
-        <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">Create an Account</h1>
-        <label>
+    <div className="bg-customBeige flex justify-between items-center min-h-screen">
+    <div className="w-full md:w-3/4 lg:w-1/2 p-5">
+      <form onSubmit={handleSubmit} className="p-5 m-10">
+        <h1 className="  text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-l md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">Create an Account</h1>
+        <label className="mr-3 ">
           <input
             type="radio"
             value="client"
@@ -40,9 +41,9 @@ function Signup() {
             checked={role === "client"}
             onChange={() => setRole("client")} // Fixed state update
           />
-          As Client
+          As a Client
         </label>
-        <label>
+        <label className="ml-5 ">
           <input
             type="radio"
             value="admin"
@@ -50,12 +51,12 @@ function Signup() {
             checked={role === "admin"}
             onChange={() => setRole("admin")} // Fixed state update
           />
-          As Admin
+          As an Admin
         </label>
         <div className="flex flex-col mt-3">
           <label htmlFor="name">Name: </label>
           <input
-          className="p-2 border rounded mt-3"
+            className="p-2 border rounded mt-3"
             type="text"
             value={name}
             id="name"
@@ -67,7 +68,7 @@ function Signup() {
         <div className="flex flex-col mt-3">
           <label htmlFor="phone">Phone: </label>
           <input
-          className="p-2 border rounded mt-3"
+            className="p-2 border rounded mt-3"
             type="number"
             value={phone}
             id="phone"
@@ -76,10 +77,10 @@ function Signup() {
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <div>
+        <div className="flex flex-col mt-3">
           <label htmlFor="email">Email: </label>
           <input
-          className="p-2 border rounded"
+            className="p-2 border rounded mt-3"
             type="email"
             value={email}
             id="email"
@@ -88,11 +89,11 @@ function Signup() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="flex flex-col mt-3">
           <label htmlFor="password">Password: </label>
           <input
-          className="p-2 border rounded"
-            type="password" 
+            className="p-2 border rounded mt-3"
+            type="password"
             value={password}
             id="password"
             placeholder="Enter your password"
@@ -101,9 +102,10 @@ function Signup() {
           />
         </div>
         {role === "admin" && (
-          <div>
+          <div className="flex flex-col mt-3">
+            <label>Secret Key of Admin:</label>
             <input
-            className="p-2 border rounded"
+              className="p-2 border rounded mt-3"
               type="text"
               placeholder="Secret Key"
               required
@@ -114,13 +116,17 @@ function Signup() {
         )}
         <button
           type="submit"
-          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown"
+          className="flex items-center justify-center  bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown"
         >
           Sign up
         </button>
-      </form></div>
-      
+      </form>
     </div>
+  
+    {/* Right Side Image */}
+    <div className="hidden md:block w-1/2 md:w-1/4 lg:w-1/2 h-screen bg-cover bg-center " style={{ backgroundImage: "url('/images/girl1.jpg')" }}></div>
+  </div>
+  
   );
 }
 
