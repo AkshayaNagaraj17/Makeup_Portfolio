@@ -1,6 +1,11 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate=useNavigate()
+  const handleBooking=()=>
+  {
+    navigate("/booking")
+  }
   return (
     <div>
       {/* bg-picture */}
@@ -14,7 +19,7 @@ function Home() {
             <p className="md:mt-10 ">like jewelry for the</p>
             <p className="md:mt-10">face</p>
           </div>
-          <button className=" bg-customBrown flex px-5 py-2 mr-20 transition duration-300 ease-in-out  rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
+          <button className=" bg-customBrown flex px-5 py-2 mr-20 transition duration-300 ease-in-out  rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown" onclick={handleBooking}>
             BOOK NOW
           </button>
         </div>
