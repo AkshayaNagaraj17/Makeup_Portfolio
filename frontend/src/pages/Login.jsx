@@ -4,21 +4,26 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch('http://localhost:5000/api/auth/user/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
         });
 
         const data = await response.json();
+        console.log("Login response data:", data);
+        console.log("Role from response:", data.role);
         if (response.ok) {
             localStorage.setItem('token', data.token);
+            localStorage.setItem('role',data.role)
             if (data.role === 'admin') {
+                console.log("Redirecting to admin dashboard"); 
                 navigate('/admin-dashboard');
             } else {
                 navigate('/home');
