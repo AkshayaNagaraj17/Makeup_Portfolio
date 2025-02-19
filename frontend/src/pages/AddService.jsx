@@ -57,7 +57,7 @@ const AddService = () => {
       <h2>Manage Services</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Service Name:</label>
+          <label className="text-customBrown"htmlFor="name">Service Name:</label>
           <input
             type="text"
             id="name"
