@@ -1,43 +1,60 @@
-import React, { useState } from 'react';
+// frontend/src/components/Admin/AddPortfolio.jsx
+import React, { useState } from "react";
 
+const AddPortfolio = () => {
+  const [base64Image, setBase64Image] = useState("");
 
-function AddPortfolio () {
-    const [file, setFile] = useState(null);
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setBase64Image(reader.result);
     };
+    reader.readAsDataURL(file); // Convert file to base64 string
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('image', file);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        try {
-            const response=await fetch("/api/admin/portfolio/createpf",{
-            method:"POST",
-            body:formData})
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Error uploading image');
-              }
-        
-              alert('Image uploaded successfully');
-        } catch (err) {
-            console.log(err);
-            alert('Error uploading image');
-        }
-    };
+    if (!base64Image) {
+      alert("Please select an image first.");
+      return;
+    }
 
-    return (
-        <div>
-            <h2>Portfolio Manager</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileChange} />
-                <button type="submit">Upload Image</button>
-            </form>
-        </div>
-    );
+    try {
+      const response = await fetch("http://localhost:5000/api/admin/portfolio/createpf", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // If you have auth enabled, you can include the token:
+          // Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ image: base64Image }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Error uploading image");
+      }
+      alert(data.message);
+      setBase64Image(""); // Optionally reset the state
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading image: " + error.message);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Manage Portfolio</h2>
+      <form onSubmit={handleSubmit}>
+        <input type="file" onChange={handleFileChange} accept="image/*" />
+        <button type="submit">Upload Image</button>
+      </form>
+    </div>
+  );
 };
 
 export default AddPortfolio;

@@ -2,8 +2,8 @@ import React from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-// import Portfolio from "./pages/Portfolio";
-// import Service from "./pages/Service";
+import Portfolio from "./pages/Portfolio";
+import Service from "./pages/Service";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -15,15 +15,15 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 function App() {
   const location = useLocation(); // This will work only if App is inside Router
   
-  const shouldusenavfooter = location.pathname !== "/signup" && location.pathname !== "/login";
+  const shouldusenavfooter = location.pathname !== "/signup" && location.pathname !== "/login" ;
 
   return (
     <div>
       {shouldusenavfooter && <NavBar />}  {/* Render NavBar only if condition is true */}
       <Routes>
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/service" element={<Service />} /> */}
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/service" element={<Service />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
