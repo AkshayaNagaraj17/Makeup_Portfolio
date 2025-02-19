@@ -2,10 +2,18 @@ import { useState } from "react";
 import { Link  } from "react-router-dom";
 import React from "react";
 import logo from "../assets/shine.png";
-
+import { useNavigate } from "react-router-dom";
 function NavBar() {
+  const navigate=useNavigate()
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const handleSignup=()=>
+  {
+    navigate("/signup")
+  }
+  const handleLogin=()=>
+  {
+    navigate("/login")
+  }
   return (
     <nav className="flex flex-col items-center md:flex-row items-center justify-between p-4 bg-white shadow-md">
       <img className="w-32 h-auto ml-5" src={logo} alt="logo" />
@@ -42,10 +50,10 @@ function NavBar() {
       </ul>
 
       <div className="flex gap-4 mt-1 mr-5">
-        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
+        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown" onClick={handleSignup}>
           Signup
         </button>
-        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown">
+        <button className="bg-customBrown px-5 py-2 transition duration-300 ease-in-out border rounded-2xl text-white hover:bg-opacity-25  hover:text-customBrown" onClick={handleLogin}>
           Login
         </button>
       </div>

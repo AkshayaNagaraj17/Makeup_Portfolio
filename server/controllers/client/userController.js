@@ -1,7 +1,7 @@
 const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const adminKey=process.env.ADMIN_KEY;
 const signup = async (req, res) => {
   try {
     const { name, email, password ,role,secretKey} = req.body;
@@ -10,6 +10,13 @@ const signup = async (req, res) => {
       return res.status(400).json({
         message: "User already exists",
       });
+    }
+    if (role==="admin")
+    {
+      if (secretKey!==adminKey)
+      {
+        return res.status(403).json({message:"Invalid admin secret key"})
+      }
     }
     //hashing the pword
     const salt = await bcrypt.genSalt(10);
@@ -45,10 +52,15 @@ const login = async (req, res) => {
         message: "Invalid credentials",
       });
     }
-    const token = jwt.sign({ userID: user._id.toString()}, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { userID: user._id.toString(), role: user.role }, // Include role in token payload
+      process.env.JWT_SECRET
+    );
     res.status(200).json({
       message: "Login successful",
       token,
+      role:user.role,
+     
     });
   } catch (error) {
     res.status(500).json({

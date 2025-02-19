@@ -33,7 +33,7 @@ function Signup() {
     <div className="w-full md:w-3/4 lg:w-1/2 p-5">
       <form onSubmit={handleSubmit} className="p-5 m-10">
         <h1 className="  text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-l md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">Create an Account</h1>
-        <label className="mr-3 ">
+        <label className="mr-3 text-xl">
           <input
             type="radio"
             value="client"
@@ -43,7 +43,7 @@ function Signup() {
           />
           As a Client
         </label>
-        <label className="ml-5 ">
+        <label className="ml-5 text-xl">
           <input
             type="radio"
             value="admin"

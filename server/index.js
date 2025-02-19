@@ -20,6 +20,8 @@ connectDB()
 const app=express()
 app.use(cors())
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
+
 app.use("/api/auth/admin", adminAuthRoutes); // Admin authentication routes
 app.use("/api/auth/user", userRoutes); // Client authentication routes
 app.use("/api/admin/portfolio", adminPortfolioRoutes); // Admin portfolio management
