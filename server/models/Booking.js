@@ -14,6 +14,9 @@ const BookingSchema=new Schema({
     date:{
         type:Date,required:true
     },
+    venue:{
+        type:String,required:true
+    },
     service:{
         type:String,required:true
     }

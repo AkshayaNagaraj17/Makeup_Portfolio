@@ -4,26 +4,35 @@ const Service=require("../../models/Service")
 
 
 const createBooking = async (req, res) => {
-    try {
-      const { clientName, email, phone, date, service } = req.body;
-      const booking = await Appointment.create({
-        clientName,
-        email,
-        phone,
-        date,
-        service,
+  try {
+      console.log("Received request body:", req.body); // Debug log
+
+      const { clientName, email, phone, date, service,venue } = req.body;
+
+      
+
+      const booking = await Booking.create({
+          clientName,
+          email,
+          phone,
+          date,
+          venue,
+          service,
       });
+
       res.status(201).json({
-        message: "Booking created successfully",
-        booking,
+          message: "Booking created successfully",
+          booking,
       });
-    } catch (error) {
+  } catch (error) {
+      console.error("Error in booking:", error.message); // Debug log for errors
       res.status(500).json({
-        message: "Error in creating booking",
-        error: error.message,
+          message: "Error in creating booking",
+          error: error.message,
       });
-    }
-  };
+  }
+};
+
   
   const getBooking = async (req, res) => {
     try {

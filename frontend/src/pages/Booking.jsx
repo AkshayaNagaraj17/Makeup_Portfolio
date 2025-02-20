@@ -26,13 +26,20 @@ function Booking() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/client/clientBook/create", {
+      const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(
-        formData),
+        {
+          clientName: formData.name, 
+          email: formData.email,
+          phone: formData.number, 
+          date: formData.date,
+          service: formData.service,
+          venue: formData.venue,
+        }),
       });
       const result = await response.json();
       if (response.ok) {
