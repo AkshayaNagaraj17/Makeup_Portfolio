@@ -47,12 +47,19 @@ const AddPortfolio = () => {
   };
 
   return (
-    <div>
-      <h2>Manage Portfolio</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} accept="image/*" />
-        <button type="submit">Upload Image</button>
+    <div className="flex flex-col justify-center items-center">
+     <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
+                Upload new Portfolio
+              </h1>
+              <div className="w-full p-5 text-lg mb-5 bg-customBeige text-customBrown font-avr tracking-widest">
+    <p>Start curating your masterpiece
+    gallery today!</p>
+              </div>
+      <form className="flex flex-col items-center justify-center"onSubmit={handleSubmit}>
+        <input className="w-full cursor-pointer border border-gray-300 rounded-lg p-3 file:bg-customBrown file:text-white file:px-4 file:py-2 file:rounded-md file:cursor-pointer file:border-none hover:file:bg-opacity-90 transition" type="file" onChange={handleFileChange} accept="image/*" />
+        <button className="flex items-center justify-center  bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown" type="submit">Upload Image</button>
       </form>
+
     </div>
   );
 };
