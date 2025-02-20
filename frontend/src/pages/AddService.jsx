@@ -53,12 +53,16 @@ const AddService = () => {
   };
 
   return (
-    <div>
-      <h2>Manage Services</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="text-customBrown"htmlFor="name">Service Name:</label>
+    <div className='flex flex-col items-center justify-center'>
+      <h2 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">Manage Services</h2>
+      <div className="w-full p-5 text-lg mb-5 bg-customBeige text-customBrown font-avr tracking-widest">
+    <p>Update your menu to match your evolving artistry!</p>
+              </div>
+      <form className='flex flex-col  items-center' onSubmit={handleSubmit}>
+        <div className='p-5 m-5 '>
+          <label className="text-black font-avr text-xl" htmlFor="name">Service Name:   </label>
           <input
+          className='border-collapse border-2 p-3 mt-5 w-full'
             type="text"
             id="name"
             name="name"
@@ -69,10 +73,12 @@ const AddService = () => {
           />
         </div>
         <div>
-          <label htmlFor="description">Service Description:</label>
+          <label   className="text-black font-avr text-xl" htmlFor="description">Service Description:</label>
           <textarea
+            className='border-collapse border-2 p-3 mt-5 w-full'
             id="description"
             name="description"
+            
             value={service.description}
             onChange={handleInputChange}
             placeholder="Enter service description"
@@ -80,8 +86,9 @@ const AddService = () => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="price">Price ($):</label>
+          <label className="text-black font-avr text-xl" htmlFor="price">Price ($):</label>
           <input
+           className='border-collapse border-2 p-3 mt-5 w-full'
             type="number"
             id="price"
             name="price"
@@ -91,7 +98,7 @@ const AddService = () => {
             required
           />
         </div>
-        <button type="submit">Add Service</button>
+        <button className="flex items-center justify-center  bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown" type="submit">Add Service</button>
       </form>
     </div>
   );
