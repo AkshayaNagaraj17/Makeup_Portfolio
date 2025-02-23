@@ -25,22 +25,22 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+
     try {
       const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(
-        {
-          clientName: formData.name, 
-          email: formData.email,
-          phone: formData.number, 
-          date: formData.date,
-          service: formData.service,
-          venue: formData.venue,
-        }),
-      });
+        body: JSON.stringify({
+  clientName: formData.name, 
+  email: formData.email,
+  phone: formData.number, 
+  date: formData.date,
+  service: formData.service,
+  venue: formData.venue,
+}),});
       const result = await response.json();
       if (response.ok) {
         alert("Your booking has been submitted successfully!");
@@ -131,7 +131,7 @@ function Booking() {
         <div className="flex flex-col">
           <label className=" mb-1">Event Date *</label>
           <input
-            type="date"
+            type=""
             name="date"
             value={formData.date}
             onChange={handleChange}
