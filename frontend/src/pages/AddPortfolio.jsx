@@ -59,7 +59,7 @@ const AddPortfolio = () => {
         <input className="w-full cursor-pointer border border-gray-300 rounded-lg p-3 file:bg-customBrown file:text-white file:px-4 file:py-2 file:rounded-md file:cursor-pointer file:border-none hover:file:bg-opacity-90 transition" type="file" onChange={handleFileChange} accept="image/*" />
         <button className="flex items-center justify-center  bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown" type="submit">Upload Image</button>
       </form>
-
+    
     </div>
   );
 };

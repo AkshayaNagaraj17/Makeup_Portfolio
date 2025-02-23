@@ -33,9 +33,14 @@ function Booking() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(
-        ...formData),
-      });
+        body: JSON.stringify({
+  clientName: formData.name, 
+  email: formData.email,
+  phone: formData.number, 
+  date: formData.date,
+  service: formData.service,
+  venue: formData.venue,
+}),});
       const result = await response.json();
       if (response.ok) {
         alert("Your booking has been submitted successfully!");

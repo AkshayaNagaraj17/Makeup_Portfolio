@@ -15,7 +15,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 function App() {
   const location = useLocation(); // This will work only if App is inside Router
   
-  const shouldusenavfooter = location.pathname !== "/signup" && location.pathname !== "/login" ;
+  const shouldusenavfooter = location.pathname !== "/signup" && location.pathname !== "/login" && location.pathname!=="/admin-dashboard";
 
   return (
     <div>
