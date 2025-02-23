@@ -20,15 +20,14 @@ const PortfolioList = () => {
 
   return (
     <div>
-      <h2 className="mb-11 text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-l md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">Portfolio</h2>
-      <div className="bg-customBeige p-10 text-xl font-montserratfont-semibold text-customBrown mb-10">Explore Our Works Through Our Portfolio</div>
+      <h2>Portfolio</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {portfolio.map((item) => (
           <div key={item._id} style={{ margin: "10px" }}>
-            <img className=" m-5 rounded-lg hover:scale-150 hover:brightness-105"
+            <img
               src={item.image} // The image field holds the base64 string
               alt="Portfolio"
-              style={{ width: "400px", height: "auto" }}
+              style={{ width: "200px", height: "auto" }}
             />
           </div>
         ))}

@@ -106,7 +106,7 @@ function Signup() {
             <label>Secret Key of Admin:</label>
             <input
               className="p-2 border rounded mt-3"
-              type="password"
+              type="text"
               placeholder="Secret Key"
               required
               value={secretKey}
