@@ -1,5 +1,6 @@
 import { useState } from "react";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
+
 function Booking() {
   const [formData, setForm] = useState({
     name: "",
@@ -25,50 +26,68 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    if (!formData.email) {
+      alert("Please enter your email to proceed with booking.");
+      return;
+    }
+  
     try {
+      // ✅ Check if the email exists in the database
+      const checkResponse = await fetch(`http://localhost:5000/api/client/clientBook/get?email=${formData.email}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      const checkResult = await checkResponse.json();
+  
+      if (!checkResponse.ok) {
+        alert(checkResult.message || "User not found. Please log in first.");
+        return;
+      }
+  
+      // ✅ If email exists, proceed with booking
       const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(
-        {
-          clientName: formData.name, 
+        body: JSON.stringify({
+          clientName: formData.name, // Fix field name
           email: formData.email,
-          phone: formData.number, 
+          phone: formData.number, // Fix field name
           date: formData.date,
-          service: formData.service,
           venue: formData.venue,
+          service: formData.service,
         }),
       });
+  
       const result = await response.json();
+  
       if (response.ok) {
         alert("Your booking has been submitted successfully!");
-        const emailParams={
-          client_name: formData.name,
-          client_email: formData.email,
-          client_phone: formData.number,
-          appointment_date: formData.date,
-          service_booked: formData.service,
-          venue: formData.venue,
-        }
+        // ✅ Send confirmation email using emailjs
         emailjs.send(
           "service_b02tsse",
           "template_ux4cs9b",
-          emailParams,
+          {
+            client_name: formData.name,
+            client_email: formData.email,
+            client_phone: formData.number,
+            appointment_date: formData.date,
+            service_booked: formData.service,
+            venue: formData.venue,
+          },
           "VEMVEqCGroX1Sfd9U"
         )
         .then(
-          (response)=>
-          {
-            console.log("Email sent successfully",response.status,response.text)
-            alert("Booking confirmed email has sent")
-          },
-          (error)=>{
-            console.error("Failoed to send mail",error)
-            alert("Failed to send your booking mail")
-          }
-        )
+          () => alert("Booking confirmation email sent"),
+          () => alert("Failed to send booking email")
+        );
+
+        // ✅ Reset form after successful booking
         setForm({
           name: "",
           email: "",
@@ -81,16 +100,16 @@ function Booking() {
         alert(result.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Error submitting booking :", error);
       alert("Error submitting booking");
     }
   };
 
   return (
     <div className="bg-customBeige w-full p-5">
-      <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-xl md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
-        Schedule your Appointment
+      <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10">
+        Schedule your Appointment !
       </h1>
+
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
         <div className="flex flex-col">
           <label className="mb-1">Name *</label>
@@ -105,7 +124,7 @@ function Booking() {
         </div>
 
         <div className="flex flex-col">
-          <label className=" mb-1">Email *</label>
+          <label className="mb-1">Email *</label>
           <input
             type="email"
             name="email"
@@ -117,7 +136,7 @@ function Booking() {
         </div>
 
         <div className="flex flex-col">
-          <label className=" mb-1">Phone *</label>
+          <label className="mb-1">Phone *</label>
           <input
             type="tel"
             name="number"
@@ -129,7 +148,7 @@ function Booking() {
         </div>
 
         <div className="flex flex-col">
-          <label className=" mb-1">Event Date *</label>
+          <label className="mb-1">Event Date *</label>
           <input
             type="date"
             name="date"
@@ -141,7 +160,7 @@ function Booking() {
         </div>
 
         <div className="flex flex-col">
-          <label className=" mb-1">Venue *</label>
+          <label className="mb-1">Venue *</label>
           <input
             type="text"
             name="venue"
@@ -153,7 +172,7 @@ function Booking() {
         </div>
 
         <div className="flex flex-col">
-          <label className=" mb-1">Service *</label>
+          <label className="mb-1">Service *</label>
           <select
             name="service"
             value={formData.service}
@@ -171,9 +190,10 @@ function Booking() {
             ))}
           </select>
         </div>
+
         <button
           type="submit"
-          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white transition duration-300 ease-in-out hover:bg-opacity-25 hover:text-customBrown"
+          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white"
         >
           Book Now
         </button>

@@ -12,7 +12,7 @@ function Footer() {
           <Link to="/about" className="hover:underline">
             About
           </Link>
-          <Link to="/home" className="hover:underline">
+          <Link to="/" className="hover:underline">
             Home
           </Link>
           <Link to="/booking" className="hover:underline">
@@ -37,21 +37,24 @@ function Footer() {
 
         <div className="mt-4 flex flex-row gap-3 md:mt-1 "> Social Media : 
         <a
-            href="http://instagram.com"
+            href="http://instagram.com/artistry_by_rathi"
             className="text-white hover:text-amber-500"
             aria-label="Instagram"
           >
             <FaInstagram size={25} />
           </a>
           <a
-            href="http://instagram.com"
+            href="mailto:cnagaraj332@gmail.com"
             className="text-white hover:text-amber-500"
             aria-label="Instagram"
           >
             <FaMailBulk size={25} />
           </a>
           <a
-            href="http://instagram.com"
+            href="https://wa.me/9952187232"
+    target="_blank"
+    rel="noopener noreferrer"
+
             className="text-white hover:text-amber-500"
             aria-label="Instagram"
           >

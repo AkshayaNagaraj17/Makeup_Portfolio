@@ -26,7 +26,7 @@ const Login = () => {
                 console.log("Redirecting to admin dashboard"); 
                 navigate('/admin-dashboard');
             } else {
-                navigate('/home');
+                navigate('/');
             }
         } else {
             alert(data.message);
@@ -37,9 +37,10 @@ const Login = () => {
         <div className="bg-customBeige min-h-screen flex flex-col">
             {/* The main content area */}
             <div className="flex flex-col items-center justify-center text-center w-full py-6">
-                <h2 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-l md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
-                    Welcome! Login
-                </h2>
+                <h2 
+                     className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10 sm:text-l md:text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
+               
+                     Welcome! </h2>
                 <form className="w-3/4 md:w-1/2 text-left  " onSubmit={handleLogin}>
                     <div className="flex flex-col mt-2">
                         <label htmlFor="email">Email: </label>

@@ -1,4 +1,8 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 // import { useNavigate } from "react-router-dom";
 function Home() {
   // const navigate=useNavigate()
@@ -98,10 +102,18 @@ function Home() {
       </div>
 
       <div>
-        <h2 className="text-customBrown tracking-widest text-center text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
+      <h2 className="text-customBrown tracking-widest text-center text-2xl hover:underline hover:scale-105 transition duration-300 ease-in-out">
           Client Love !
         </h2>
-        <div className="bg-customBeige rounded-xl w-1/2 p-5 mx-auto mb-10 mt-5 items-center text-center hover:shadow-xl shadow-red-200">
+      <Swiper
+      modules={[Navigation]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      className="w-full max-w-2xl "
+    >
+      <SwiperSlide>
+      <div className="bg-customBeige rounded-xl w-1/2 p-5 mx-auto mb-10 mt-5 items-center text-center hover:shadow-xl shadow-red-200">
           <p>
             “I booked Rathi for a party makeup session, and she completely
             transformed me! The look was glamorous yet comfortable, and it
@@ -113,6 +125,33 @@ function Home() {
             - Riya
           </p>
         </div>
+      </SwiperSlide>
+      <SwiperSlide>
+      <div className="bg-customBeige rounded-xl w-1/2 p-5 mx-auto mb-10 mt-5 items-center text-center hover:shadow-xl shadow-red-200">
+          <p>
+          "The portfolio section helped me choose the perfect makeup style, and the artist truly brought my vision to life. Such a smooth and efficient process!"
+          </p>
+
+          <p className="mt-6 text-center items-center text-customBrown font-semibold">
+            - Sofia
+          </p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+      <div className="bg-customBeige rounded-xl w-1/2 p-5 mx-auto mb-10 mt-5 items-center text-center hover:shadow-xl shadow-red-200">
+          <p>
+          "I had my bridal makeup done by this amazing artist, and I couldn't have been happier! The booking process was seamless, and the final look was beyond my expectations. Highly recommend!"
+          </p>
+
+          <p className="mt-6 text-center items-center text-customBrown font-semibold">
+            - Sarah
+          </p>
+        </div>
+      </SwiperSlide>
+    </Swiper>
+  
+        
+        
       </div>
     </div>
   );

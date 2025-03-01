@@ -21,7 +21,7 @@ function App() {
     <div>
       {shouldusenavfooter && <NavBar />}  {/* Render NavBar only if condition is true */}
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/service" element={<Service />} />
         <Route path="/booking" element={<Booking />} />
