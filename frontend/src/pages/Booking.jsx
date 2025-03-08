@@ -26,12 +26,13 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
   
     if (!formData.email) {
       alert("Please enter your email to proceed with booking.");
       return;
     }
-  
+
     try {
       // ✅ Check if the email exists in the database
       const checkResponse = await fetch(`http://localhost:5000/api/client/clientBook/get?email=${formData.email}`, {
@@ -55,6 +56,7 @@ function Booking() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+
           clientName: formData.name, // Fix field name
           email: formData.email,
           phone: formData.number, // Fix field name
@@ -64,6 +66,8 @@ function Booking() {
         }),
       });
   
+
+ 
       const result = await response.json();
   
       if (response.ok) {
@@ -150,7 +154,7 @@ function Booking() {
         <div className="flex flex-col">
           <label className="mb-1">Event Date *</label>
           <input
-            type="date"
+            type=""
             name="date"
             value={formData.date}
             onChange={handleChange}
