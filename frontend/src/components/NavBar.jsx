@@ -15,7 +15,7 @@ function NavBar() {
     navigate("/login")
   }
   return (
-    <nav className="flex flex-col items-center md:flex-row items-center justify-between p-4 bg-white shadow-md">
+    <nav className="flex flex-col  md:flex-row items-center justify-between p-4 bg-white shadow-md">
       <img className="w-32 h-auto ml-5" src={logo} alt="logo" />
       <button
         className="md:hidden text-customBrown focus:outline-none"
@@ -41,7 +41,7 @@ function NavBar() {
           menuOpen ? "flex" : "hidden"
         } flex-col md:flex md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-customBrown hover:cursor-pointer mt-4 md:mt-0`}
       >
-        <Link className="hover:scale-110" to="/home">Home</Link>
+        <Link className="hover:scale-110" to="/">Home</Link>
         <Link className="hover:scale-110" to="/portfolio">Portfolio</Link >
         <Link className="hover:scale-110" to="/service">Services</Link >
         <Link className="hover:scale-110" to="/booking">Booking</Link >
