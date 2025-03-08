@@ -48,7 +48,7 @@ function Booking() {
         return;
       }
   
-      // ✅ If email exists, proceed with booking
+  
       const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
         method: "POST",
         headers: {

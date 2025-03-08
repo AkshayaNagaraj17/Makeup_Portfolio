@@ -5,8 +5,8 @@ function About() {
     <div>
       <div className="flex flex-col md:flex-col  lg:flex-row ">
         <img
-          className="w-full lg:w-3/4  mt-8 mb-8 mr-10 rounded-md sm:w-full  md:w-full transition delay-200 hover:scale-105 hover:brightness-110 "
-          src="/images/bridal2.jpg"
+          className="  mt-8 mb-8 mr-10 rounded-md sm:w-full  md:w-full lg:w-1/2 transition delay-200 hover:scale-105 hover:brightness-110 "
+          src="/images/rathi.jpg"
           alt="MakeupArtist"
         />
         <div className="w-full   text-center flex flex-col justify-center items-center">
