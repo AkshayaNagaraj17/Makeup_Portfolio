@@ -55,9 +55,9 @@ function Booking() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          clientName: formData.name, // Fix field name
+          clientName: formData.name, 
           email: formData.email,
-          phone: formData.number, // Fix field name
+          phone: formData.number, 
           date: formData.date,
           venue: formData.venue,
           service: formData.service,
@@ -68,7 +68,7 @@ function Booking() {
   
       if (response.ok) {
         alert("Your booking has been submitted successfully!");
-        // ✅ Send confirmation email using emailjs
+       
         emailjs.send(
           "service_b02tsse",
           "template_ux4cs9b",
@@ -87,7 +87,7 @@ function Booking() {
           () => alert("Failed to send booking email")
         );
 
-        // ✅ Reset form after successful booking
+
         setForm({
           name: "",
           email: "",
