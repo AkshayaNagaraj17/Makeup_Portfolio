@@ -1,4 +1,4 @@
-// frontend/src/components/Admin/AddService.jsx
+
 import React, { useState } from 'react';
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const AddService = () => {
@@ -16,7 +16,7 @@ const AddService = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
+   
     if (!service.name || !service.description || !service.price) {
       alert("All fields are required");
       return;
