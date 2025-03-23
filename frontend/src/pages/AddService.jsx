@@ -1,6 +1,6 @@
 // frontend/src/components/Admin/AddService.jsx
 import React, { useState } from 'react';
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const AddService = () => {
   const [service, setService] = useState({
     name: '',
@@ -23,7 +23,7 @@ const AddService = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/service/createService", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/service/createService`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
