@@ -33,7 +33,7 @@ function Booking() {
     }
   
     try {
-      // ✅ Check if the email exists in the database
+     
       const checkResponse = await fetch(`${API_BASE_URL}/api/client/clientBook/get?email=${formData.email}`, {
         method: "GET",
         headers: {
@@ -107,7 +107,7 @@ function Booking() {
   return (
     <div className="bg-customBeige w-full p-5">
       <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10">
-        Schedule your Appointments !
+        Schedule your Appointments !!
       </h1>
 
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
