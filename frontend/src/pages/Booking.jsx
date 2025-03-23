@@ -189,11 +189,22 @@ function Booking() {
               </option>
             ))}
           </select>
+          <div className="flex flex-col mt-5">
+          <label className="mb-1">Jewel Preferrence (Type the s.no. of jewel you like)</label>
+          <input
+            type="text"
+            name="jewel"
+            value={formData.jewel}
+            onChange={handleChange}
+            required
+            className="p-2 border rounded"
+          />
+        </div>
         </div>
 
         <button
           type="submit"
-          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white"
+          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 my-20 rounded-2xl text-white"
         >
           Book Now
         </button>

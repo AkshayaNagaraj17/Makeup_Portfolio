@@ -47,6 +47,14 @@ function Contact()
                 
                 {/* Name Field */}
                 <div className="w-full max-w-xl mb-4">
+                <h1 className="font-extrabold text-xl text-customBrown mb-5">
+                  
+                 Artist : Rathi Priya
+                </h1>
+                  <h1 className="font-extrabold text-xl text-customBrown mb-5">
+                  
+                    Phone : 6380613394
+                  </h1>
                   <label
                     htmlFor="name"
                     className="block font-medium mb-2"

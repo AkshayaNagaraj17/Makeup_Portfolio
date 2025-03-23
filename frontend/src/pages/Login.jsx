@@ -21,9 +21,10 @@ const Login = () => {
         console.log("Role from response:", data.role);
         if (response.ok) {
             localStorage.setItem('token', data.token);
-            localStorage.setItem('role',data.role)
-            if (data.role === 'admin') {
-                console.log("Redirecting to admin dashboard"); 
+           
+             // Define your admin password here
+
+            if (password === "Admin@123") {
                 navigate('/admin-dashboard');
             } else {
                 navigate('/');
