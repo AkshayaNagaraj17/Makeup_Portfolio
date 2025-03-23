@@ -33,6 +33,11 @@ app.use("/api/admin/service", adminServiceRoutes); // Admin service management
 app.use("/api/admin/bookings", adminBookingRoutes); // Admin booking management
 app.use("/api/client", clientRoutes); 
 app.use("/api/admin/uManage",adminuManageRoutes)
+
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully!");
+});
+
 const PORT=process.env.PORT || 5000;
 app.listen(PORT,
     ()=>console.log(`server is running at ${PORT}`)
