@@ -77,13 +77,18 @@ const getService = async (req, res) => {
 const getPortfolio = async (req, res) => {
   try {
     const portfolio = await Portfolio.find();
-    res.status(200).json(portfolio);
+    
+    // Modify response to include full image URLs
+    const updatedPortfolio = portfolio.map(item => ({
+      _id: item._id,
+      image: `${item.image}`, // Ensure this matches your storage path
+    }));
+
+    res.status(200).json(updatedPortfolio);
   } catch (error) {
-    res.status(500).json({
-      message: "Error in fetching portfolio",
-      error: error.message,
-    });
+    res.status(500).json({ message: "Error fetching portfolio", error: error.message });
   }
 };
+
 
 module.exports = { createBooking, getBooking, getService, getPortfolio };

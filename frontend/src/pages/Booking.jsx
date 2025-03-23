@@ -58,8 +58,9 @@ function Booking() {
         body: JSON.stringify({
 
           clientName: formData.name, // Fix field name
+
           email: formData.email,
-          phone: formData.number, // Fix field name
+          phone: formData.number, 
           date: formData.date,
           venue: formData.venue,
           service: formData.service,
@@ -72,7 +73,7 @@ function Booking() {
   
       if (response.ok) {
         alert("Your booking has been submitted successfully!");
-        // ✅ Send confirmation email using emailjs
+       
         emailjs.send(
           "service_b02tsse",
           "template_ux4cs9b",
@@ -91,7 +92,7 @@ function Booking() {
           () => alert("Failed to send booking email")
         );
 
-        // ✅ Reset form after successful booking
+
         setForm({
           name: "",
           email: "",
@@ -193,11 +194,22 @@ function Booking() {
               </option>
             ))}
           </select>
+          <div className="flex flex-col mt-5">
+          <label className="mb-1">Jewel Preferrence (Type the s.no. of jewel you like)</label>
+          <input
+            type="text"
+            name="jewel"
+            value={formData.jewel}
+            onChange={handleChange}
+            required
+            className="p-2 border rounded"
+          />
+        </div>
         </div>
 
         <button
           type="submit"
-          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 mt-10 rounded-2xl text-white"
+          className="flex items-center justify-center ml-44 bg-customBrown px-5 py-2 my-20 rounded-2xl text-white"
         >
           Book Now
         </button>

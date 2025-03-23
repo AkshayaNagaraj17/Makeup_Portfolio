@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { addPortfolioItem } = require("../../controllers/admin/admin/portfolioController");
+const {addPortfolioItem } = require("../../controllers/admin/admin/portfolioController");
 
 // Admin routes for portfolio management
 router.post("/createpf",addPortfolioItem ); 
