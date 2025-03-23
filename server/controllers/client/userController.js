@@ -4,20 +4,20 @@ const jwt = require("jsonwebtoken");
 const adminKey=process.env.ADMIN_KEY;
 const signup = async (req, res) => {
   try {
-    const { name, email, password ,role,secretKey} = req.body;
+    const { name, email, password ,role} = req.body;
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({
         message: "User already exists",
       });
     }
-    if (role==="admin")
-    {
-      if (secretKey!==adminKey)
-      {
-        return res.status(403).json({message:"Invalid admin secret key"})
-      }
-    }
+    // if (role==="admin")
+    // { 
+    //   if (secretKey!==adminKey)
+    //   {
+    //     return res.status(403).json({message:"Invalid admin secret key"})
+    //   }
+    // }
     //hashing the pword
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -26,7 +26,7 @@ const signup = async (req, res) => {
       name: name,
       email: email,
       password: hashedPassword,
-      role,
+      role:"user",
     });
     
     res.status(201).json({
@@ -42,28 +42,32 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "User not found",
       });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Invalid credentials",
       });
     }
+    let role="user"
+    if(password===adminKey){
+      role="admim"
+    }
+
     const token = jwt.sign(
       { userID: user._id.toString(), role: user.role }, // Include role in token payload
       process.env.JWT_SECRET
     );
-    res.status(200).json({
-      message: "Login successful",
-      token,
-      role:user.role,
+    
+
+        res.json({ token, role });
      
-    });
+    
   } catch (error) {
-    res.status(500).json({
+   return res.status(500).json({
       message: "Erorr in login process",
       error:error.message,
     });
