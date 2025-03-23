@@ -19,7 +19,7 @@ connectDB()
 
 const app=express()
 app.use(cors({
-    origin: "http://localhost:3000", // React frontend URL
+    origin: ["http://localhost:3000","https://makeup-portfolio-nu.vercel.app","https://shine-studio-portfolio.vercel.app"], // React frontend URL
     methods: ["GET", "POST"]
   }))
 app.use(express.json({ limit: "10mb" }));
