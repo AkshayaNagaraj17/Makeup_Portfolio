@@ -1,13 +1,13 @@
 // frontend/src/components/Client/ServiceList.jsx
 import React, { useState, useEffect } from "react";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const ServiceList = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/client/clientService/get");
+        const response = await fetch(`${API_BASE_URL}/api/client/clientService/get`);
         if (!response.ok) {
           throw new Error("Failed to fetch services");
         }

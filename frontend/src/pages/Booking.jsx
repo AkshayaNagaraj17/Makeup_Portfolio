@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function Booking() {
   const [formData, setForm] = useState({
     name: "",
@@ -35,7 +35,7 @@ function Booking() {
 
     try {
       // ✅ Check if the email exists in the database
-      const checkResponse = await fetch(`http://localhost:5000/api/client/clientBook/get?email=${formData.email}`, {
+      const checkResponse = await fetch(`${API_BASE_URL}/api/client/clientBook/get?email=${formData.email}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function Booking() {
       }
   
   
-      const response = await fetch("http://localhost:5000/api/client/clientBook/create", {
+      const response = await fetch(`${API_BASE_URL}/api/client/clientBook/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ function Booking() {
   return (
     <div className="bg-customBeige w-full p-5">
       <h1 className="text-customBrown font-avr tracking-widest text-xl text-center items-center p-10">
-        Schedule your Appointment !
+        Schedule your Appointments !
       </h1>
 
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">

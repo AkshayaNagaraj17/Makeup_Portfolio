@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const AddPortfolio = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -23,7 +23,7 @@ const AddPortfolio = () => {
     console.log("FormData:", formData.get("image"));
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/portfolio/createpf", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/portfolio/createpf`, {
         method: "POST",
         body: formData,
       });

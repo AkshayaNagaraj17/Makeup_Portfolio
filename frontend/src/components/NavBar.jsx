@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link  } from "react-router-dom";
 import React from "react";
-import logo from "../assets/shine.png";
+import logo from "../assets/logoshine.png";
 import { useNavigate } from "react-router-dom";
 function NavBar() {
   const navigate=useNavigate()

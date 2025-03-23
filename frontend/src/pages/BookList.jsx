@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function BookingList() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/bookings/getbooking")
+    fetch(`${API_BASE_URL}/api/admin/bookings/getbooking`)
       .then((response) => {
         console.log("Response status:", response.status);
         if (!response.ok) {

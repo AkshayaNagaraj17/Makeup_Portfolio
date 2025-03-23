@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PortfolioList = () => {
   const [portfolio, setPortfolio] = useState([]);
 
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/client/clientPortfolio/get"); // Ensure your API endpoint is correct
+        const response = await fetch(`${API_BASE_URL}/api/client/clientPortfolio/get`); // Ensure your API endpoint is correct
         const data = await response.json();
         console.log("Portfolio Data:", data);
         setPortfolio(data);
@@ -29,7 +29,7 @@ const PortfolioList = () => {
       <div className="mt-10 gap-10" style={{ display: "flex", flexWrap: "wrap" }}>
         {portfolio.length > 0 ? (
           portfolio.map((item) => {
-            const fullImageUrl = `http://localhost:5000${item.image}`;
+            const fullImageUrl = `${API_BASE_URL}${item.image}`;
             console.log("Image URL:", fullImageUrl); // Debugging
 
             return (
