@@ -28,7 +28,7 @@ const PortfolioList = () => {
       <div className="bg-customBeige p-10 text-customBrown text-md font-lexend">
         Explore Our Works Through Our Portfolio !
       </div>
-      <div className="mt-10 gap-10" style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="mt-10 gap-10 " style={{ display: "flex", flexWrap: "wrap" }}>
         {portfolio.length > 0 ? (
           portfolio.map((item) => {
             const fullImageUrl = `${API_BASE_URL}${item.image}`;
@@ -37,7 +37,7 @@ const PortfolioList = () => {
             return (
               <div key={item._id} style={{ margin: "10px" }}>
                 <img
-                  className="h-auto mb-8 rounded-lg hover:scale-125 hover:brightness-110 transition delay-150 hover:shadow-2xl"
+                  className=" mb-8 rounded-lg hover:scale-125 hover:brightness-110 transition delay-150 hover:shadow-2xl"
                   src={fullImageUrl}
                   alt="Portfolio"
                   style={{ width: "250px", height: "auto" }}
