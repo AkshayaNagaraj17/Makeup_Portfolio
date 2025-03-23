@@ -6,6 +6,7 @@ const PortfolioList = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
+        console.log("Fetching portfolio from:", `${API_BASE_URL}/api/client/clientPortfolio/get`);
         const response = await fetch(`${API_BASE_URL}/api/client/clientPortfolio/get`); // Ensure your API endpoint is correct
         const data = await response.json();
         console.log("Portfolio Data:", data);
@@ -24,7 +25,7 @@ const PortfolioList = () => {
         Portfolio
       </h2>
       <div className="bg-customBeige p-10 text-customBrown text-md font-lexend">
-        Explore Our Works Through Our Portfolio
+        Explore Our Works Through Our Portfolio !
       </div>
       <div className="mt-10 gap-10" style={{ display: "flex", flexWrap: "wrap" }}>
         {portfolio.length > 0 ? (
