@@ -6,6 +6,7 @@ const PortfolioList = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
+        console.log("API_BASE_URL:", API_BASE_URL);
         console.log("Fetching portfolio from:", `${API_BASE_URL}/api/client/clientPortfolio/get`);
         const response = await fetch(`${API_BASE_URL}/api/client/clientPortfolio/get`); // Ensure your API endpoint is correct
         const data = await response.json();
