@@ -29,7 +29,7 @@ const ServiceList = () => {
           <div  key={service._id} className="bg-customBeige rounded-xl shadow-md  border border-gray-300 hover:scale-105 transition-transform duration-300 ease-in-out" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
             <h3 className="font-lexend text-customBrown text-2xl font-semibold mb-8 hover:underline transition delay-75">{service.name}</h3>
             <p  className="font-avr text-lg text-gray-700 mb-5">{service.description}</p>
-            <p className="text-customBrown font-semibold">Price: ${service.price}</p>
+            <p className="text-customBrown font-semibold">Price: ₹{service.price}</p>
           </div>
         ))}
       </div>
