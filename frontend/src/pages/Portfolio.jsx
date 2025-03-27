@@ -31,8 +31,9 @@ const PortfolioList = () => {
       <div className="mt-10 gap-10 " style={{ display: "flex", flexWrap: "wrap" }}>
         {portfolio.length > 0 ? (
           portfolio.map((item) => {
-            const fullImageUrl = `${API_BASE_URL}${item.image}`;
-            console.log("Image URL:", fullImageUrl); // Debugging
+            const fullImageUrl = item.image.startsWith("http") ? item.image : `${API_BASE_URL}${item.image}`;
+
+            console.log("Image URL:", fullImageUrl); 
 
             return (
               <div key={item._id} style={{ margin: "10px" }}>
