@@ -48,7 +48,7 @@ function BookingList() {
         Booking Reports
       </h1>
 
-      {/* Filters */}
+      
       <div className="mb-5 flex flex-wrap gap-4">
         <select onChange={(e) => setMonth(e.target.value)} className="p-2 border rounded">
           <option value="">Filter by Month</option>
